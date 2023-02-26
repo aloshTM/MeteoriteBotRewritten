@@ -44,7 +44,7 @@ client.on('interactionCreate', async (interaction) => {
     const id = options.getNumber('id')!
     
     interaction.reply({ 
-      content: 'http://mete0r.xyz/assets/userthumbnails/19.png'
+      content: 'http://mete0r.xyz/assets/userthumbnails/18.png'
     })
   }
 })
