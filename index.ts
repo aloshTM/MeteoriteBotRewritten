@@ -8,7 +8,7 @@ const client = new DiscordJS.Client({
 })
 
 client.on('ready', () => {
-  console.log('Logged in as ${client.user?.tag}!')
+  console.log('Logged in as Meteorite bot. Welcome!')
   
   const guildId = '1064043825191985242'
   const guild = client.guilds.cache.get(guildId)
