@@ -1,4 +1,4 @@
-import DiscordJS, { Intents } from 'discord.js'
+import DiscordJS, { Intents, Interaction } from 'discord.js'
 import dotenv from 'dotenv'
 dotenv.config()
 
@@ -39,13 +39,11 @@ client.on('interactionCreate', async (interaction) => {
     return
   }
 
-  const { commandName, options } = interaction
+  const { commandName, options, createdAt } = interaction
   const baseUrl = "https://mete0r.xyz/assets/userthumbnails";
-  const userInput = '19' // User input to replace the placeholder
+  const userInput = interaction.options.data[0].value // User input to replace the placeholder
   const url = `${baseUrl}/${userInput}.png`;
-
 console.log(url); // Outputs: "https://example.com/12345"
-
 
   if (commandName === 'lookupid') {
     const id = options.getNumber('id')!
