@@ -41,9 +41,12 @@ client.on('interactionCreate', async (interaction) => {
   }
 
   const { commandName, options, createdAt } = interaction
-  const baseUrl = "https://mete0r.xyz/assets/userthumbnails";
-  const userInput = interaction.options.data[0].value // User input to replace the placeholder
-  const url = `${baseUrl}/${userInput}.png`;
+  const baseurlFetch = 'http://mete0r.xyz/api/userinfo' // Uses userinfo as baseUrl, will have the ID when specified by the user
+  const baseUrl = "https://mete0r.xyz/assets/userthumbnails"; // Uses userthumbnails to show the user's render
+  const userInputFetch = interaction.options.data[0].value // Grabs what the user specified as ID and uses it for fetching user data
+  const userInput = interaction.options.data[0].value // Grabs what the user specified as ID and uses it for grabbing the render
+  const url = `${baseUrl}/${userInput}.png`; // Actual URL that gets displayed
+  const urlFetch = `${baseurlFetch}/${userInputFetch}` // Fetched data gets displayed
 console.log(url); // Outputs: "https://example.com/12345"
 
   if (commandName === 'lookupid') {
