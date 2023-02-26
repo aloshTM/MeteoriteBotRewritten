@@ -1,34 +1,34 @@
-import DiscordJS, { Intents, Interaction, Client, CommandInteraction, MessageEmbed } from 'discord.js'
-import fetch from "node-fetch";
-import dotenv from 'dotenv'
-dotenv.config()
+import DiscordJS, { Intents, Interaction, Client, CommandInteraction, MessageEmbed } from 'discord.js' // literally what the bot is made from. you need this to run it
+import fetch from "node-fetch"; // for grabbing stuff from the api
+import dotenv from 'dotenv' // token crap
+dotenv.config() // idk
 
 const client = new DiscordJS.Client({
-  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES], // discord added intents due to security reasons idk but i have to specify this or i wont be able to send messages
 })
 
 client.on('ready', () => {
-  console.log('Logged in as Meteorite bot. Welcome!')
+  console.log('Logged in as Meteorite bot. Welcome!') // allows you to use the bot
   
   const guildId = '1064043825191985242'
   const guild = client.guilds.cache.get(guildId)
   let commands
 
   if (guild) {
-    commands = guild.commands
+    commands = guild.commands // creates the commands in the guild
   } else {
-    commands = client.application?.commands
+    commands = client.application?.commands // global commands (never happening?)
   }
 
-  commands?.create({
+  commands?.create({ // creates the command
     name: 'lookupid',
-    description: 'Look up a user on Meteorite',
-    options: [
+    description: 'Look up a user on Meteorite', // explaining to dumbasses what the command does (is the name not enough?)
+    options: [ // makes it so you can input a number
      {
-      name: 'id',
-      description: 'Looks up the specified user via id',
-      required: true,
-      type: 10
+      name: 'id', // id
+      description: 'Looks up the specified user via id', // d
+      required: true, // well of course you need to search a ID or the bot will crash
+      type: 10 // makes it so you can only put a number no letters or symbols
      }
     ]
   })
@@ -40,7 +40,7 @@ client.on('interactionCreate', async (interaction) => {
     return
   }
 
-  const { commandName, options, createdAt } = interaction
+  const { commandName, options, createdAt } = interaction // libraries
   const baseurlFetch = 'http://mete0r.xyz/api/userinfo' // Uses userinfo as baseUrl, will have the ID when specified by the user
   const baseUrl = "https://mete0r.xyz/assets/userthumbnails"; // Uses userthumbnails to show the user's render
   const userInputFetch = interaction.options.data[0].value // Grabs what the user specified as ID and uses it for fetching user data
@@ -54,23 +54,29 @@ async function getData() {
   try {
     const response = await fetch(urlFetch); // Make the GET request
     const data = await response.json(); // Gets the response data as a JSON
-  } catch (error) {
-    console.error(error);
+  } catch (error) { // error debugging
+    console.error(error); // error debugging
   }
 }
 
   if (commandName === 'lookupid') {
-    const id = options.getNumber('id')!
-    const embed = new MessageEmbed()
-    .setAuthor('Here is the user you looked up')!
-    .setTitle(`This is user id ${id}`)!
-    .setColor('#0099ff')
-    .setFooter('This bot was rewritten by alosh#1337. Orignal idea made by MojaveMF#2577.')
-    .setImage(`${url}`)
+    const id = options.getNumber('id')! // finds what the user inputted in the ID option and sets that as the render and author
+    const embed = new MessageEmbed() // embed to make it look cleaner
+    .setAuthor('Here is the user you looked up')! // hi
+    .setTitle(`This is user id ${id}`)! // says what ID the user looked up
+    .setColor('#0099ff') // Cosemtic
+    .setFooter('This bot was rewritten by alosh#1337. Orignal idea made by MojaveMF#2577.') // Credits
+    .setImage(`${url}`) // Sets the image as the render
+    .setFields(
+      { name: 'Creation Date', value: 'placeholeder' }, // placeholder
+      { name: 'Creation Date', value: 'placeholeder' }, // placeholder
+      { name: 'Creation Date', value: 'placeholeder' }, // placeholder
+    )
+    .setTimestamp(); // idk why i added this but im keeping
   
     
-    await interaction.reply({ embeds: [embed] });
+    await interaction.reply({ embeds: [embed] }); // actually sends the embed with all the info
    }
   });
 
-client.login(process.env.TOKEN)
+client.login(process.env.TOKEN) // login as bot
