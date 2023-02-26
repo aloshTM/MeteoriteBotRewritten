@@ -66,7 +66,7 @@ async function getData() {
     const id = options.getNumber('id')!
     
     await interaction.reply({ 
-      content: `${getData}`
+      content: `${urlFetch} ${url}`
     })
   }
 })
