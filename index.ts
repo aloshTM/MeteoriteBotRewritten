@@ -49,7 +49,6 @@ client.on('interactionCreate', async (interaction) => {
   const urlFetch = `${baseurlFetch}/${userInputFetch}` // Fetched data gets displayed 
   const embed = new MessageEmbed()
   .setDescription(urlFetch)
-  .setAuthor('alosh#1337 for the rewrite of the Meteorite bot')
   .setImage(url)
 console.log(url); // Outputs: "https://example.com/12345"
 console.log(getData) // Output should be what it fetched from userdata
@@ -67,7 +66,7 @@ async function getData() {
     const id = options.getNumber('id')!
     
     await interaction.reply({ 
-      content: ``
+      content: `${getData}`
     })
   }
 })
