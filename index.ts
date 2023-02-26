@@ -47,13 +47,15 @@ client.on('interactionCreate', async (interaction) => {
   const userInput = interaction.options.data[0].value // Grabs what the user specified as ID and uses it for grabbing the render
   const url = `${baseUrl}/${userInput}.png`; // Actual URL that gets displayed
   const urlFetch = `${baseurlFetch}/${userInputFetch}` // Fetched data gets displayed
+  const response = await fetch(urlFetch); // Makes the GET request, grabbing the data
+  const data = await response.text(); // Makes the response data text, readable to the user
 console.log(url); // Outputs: "https://example.com/12345"
 
   if (commandName === 'lookupid') {
     const id = options.getNumber('id')!
     
-    interaction.reply({ 
-      content: `${baseUrl}/${userInput}.png`
+    await interaction.reply({ 
+      content: `${data} ${baseUrl}/${userInput}.png`
     })
   }
 })
