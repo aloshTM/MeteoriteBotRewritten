@@ -20,8 +20,16 @@ client.on('ready', () => {
   }
 
   commands?.create({
-    name: 'whois',
+    name: 'lookupid',
     description: 'Look up a user on Meteorite',
+    options: [
+     {
+      name: 'id',
+      description: 'Looks up the specified user via id',
+      required: true,
+      type: 10
+     }
+    ]
   })
 })
 
@@ -32,9 +40,11 @@ client.on('interactionCreate', async (interaction) => {
 
   const { commandName, options } = interaction
 
-  if (commandName === 'whois') {
-    interaction.reply({
-      content: 'Secks'
+  if (commandName === 'lookupid') {
+    const id = options.getNumber('id')!
+    
+    interaction.reply({ 
+      content: 'http://mete0r.xyz/assets/userthumbnails/0.png'
     })
   }
 })
