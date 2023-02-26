@@ -1,4 +1,4 @@
-import DiscordJS, { Intents, Interaction, Client } from 'discord.js'
+import DiscordJS, { Intents, Interaction, Client, CommandInteraction } from 'discord.js'
 import fetch from "node-fetch";
 import dotenv from 'dotenv'
 dotenv.config()
