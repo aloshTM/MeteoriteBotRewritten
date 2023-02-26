@@ -1,4 +1,5 @@
-import DiscordJS, { Intents, Interaction } from 'discord.js'
+import DiscordJS, { Intents, Interaction, Client } from 'discord.js'
+import fetch from "node-fetch";
 import dotenv from 'dotenv'
 dotenv.config()
 
@@ -7,7 +8,7 @@ const client = new DiscordJS.Client({
 })
 
 client.on('ready', () => {
-  console.log('The bot is ready')
+  console.log('Logged in as ${client.user?.tag}!')
   
   const guildId = '1064043825191985242'
   const guild = client.guilds.cache.get(guildId)
