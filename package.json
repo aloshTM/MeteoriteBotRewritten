@@ -12,7 +12,8 @@
   "dependencies": {
     "discord.js": "^13.13.1",
     "dotenv": "^10.0.0",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "wokcommands": "^2.1.0"
   },
   "description": ""
 }
