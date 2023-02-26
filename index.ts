@@ -33,6 +33,7 @@ client.on('ready', () => {
   })
 })
 
+
 client.on('interactionCreate', async (interaction) => {
   if (!interaction.isCommand()) {
     return
@@ -44,7 +45,7 @@ client.on('interactionCreate', async (interaction) => {
     const id = options.getNumber('id')!
     
     interaction.reply({ 
-      content: 'http://mete0r.xyz/assets/userthumbnails/${id}.png'
+      content: 'http://mete0r.xyz/assets/userthumbnails/2.png'
     })
   }
 })
