@@ -47,9 +47,6 @@ client.on('interactionCreate', async (interaction) => {
   const userInput = interaction.options.data[0].value // Grabs what the user specified as ID and uses it for grabbing the render
   const url = `${baseUrl}/${userInput}.png`; // Actual URL that gets displayed
   const urlFetch = `${baseurlFetch}/${userInputFetch}` // Fetched data gets displayed 
-  const embed = new MessageEmbed()
-  .setDescription(urlFetch)
-  .setImage(url)
 console.log(url); // Outputs: "https://example.com/12345"
 console.log(getData) // Output should be what it fetched from userdata
 
@@ -64,11 +61,15 @@ async function getData() {
 
   if (commandName === 'lookupid') {
     const id = options.getNumber('id')!
+    const embed = new MessageEmbed()
+    .setDescription('Here is the user you looked up')!
+    .setTitle(`This is user id ${id}`)!
+    .setColor('#0099ff')
+    .setFooter('This bot was rewritten by alosh#1337. Orignal idea made by MojaveMF#2577.')
+  
     
-    await interaction.reply({ 
-      content: `${urlFetch} ${url}`
-    })
-  }
-})
+    await interaction.reply({ embeds: [embed] });
+   }
+  });
 
 client.login(process.env.TOKEN)
