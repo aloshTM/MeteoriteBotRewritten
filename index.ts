@@ -40,12 +40,18 @@ client.on('interactionCreate', async (interaction) => {
   }
 
   const { commandName, options } = interaction
+  const baseUrl = "https://mete0r.xyz/assets/userthumbnails";
+  const userInput = '19' // User input to replace the placeholder
+  const url = `${baseUrl}/${userInput}.png`;
+
+console.log(url); // Outputs: "https://example.com/12345"
+
 
   if (commandName === 'lookupid') {
     const id = options.getNumber('id')!
     
     interaction.reply({ 
-      content: 'http://mete0r.xyz/assets/userthumbnails/2.png'
+      content: `${baseUrl}/${userInput}.png`
     })
   }
 })
