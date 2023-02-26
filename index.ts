@@ -1,4 +1,4 @@
-import DiscordJS, { Intents, Interaction, Client, CommandInteraction } from 'discord.js'
+import DiscordJS, { Intents, Interaction, Client, CommandInteraction, MessageEmbed } from 'discord.js'
 import fetch from "node-fetch";
 import dotenv from 'dotenv'
 dotenv.config()
@@ -47,6 +47,10 @@ client.on('interactionCreate', async (interaction) => {
   const userInput = interaction.options.data[0].value // Grabs what the user specified as ID and uses it for grabbing the render
   const url = `${baseUrl}/${userInput}.png`; // Actual URL that gets displayed
   const urlFetch = `${baseurlFetch}/${userInputFetch}` // Fetched data gets displayed 
+  const embed = new MessageEmbed()
+  .setDescription(urlFetch)
+  .setAuthor('alosh#1337 for the rewrite of the Meteorite bot')
+  .setImage(url)
 console.log(url); // Outputs: "https://example.com/12345"
 console.log(getData) // Output should be what it fetched from userdata
 
@@ -63,7 +67,7 @@ async function getData() {
     const id = options.getNumber('id')!
     
     await interaction.reply({ 
-      content: `${getData} ${baseUrl}/${userInput}.png`
+      content: ``
     })
   }
 })
