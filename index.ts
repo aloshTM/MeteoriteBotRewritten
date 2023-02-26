@@ -20,14 +20,14 @@ client.on('ready', () => {
   }
 
   commands?.create({
-    name: 'lookupuser',
+    name: 'lookupid',
     description: 'Look up a user on Meteorite',
     options: [
      {
-      name: 'username',
-      description: 'Looks up the specified user via username',
+      name: 'id',
+      description: 'Looks up the specified user via id',
       required: true,
-      type: 3
+      type: 10
      }
     ]
   })
