@@ -62,10 +62,11 @@ async function getData() {
   if (commandName === 'lookupid') {
     const id = options.getNumber('id')!
     const embed = new MessageEmbed()
-    .setDescription('Here is the user you looked up')!
+    .setAuthor('Here is the user you looked up')!
     .setTitle(`This is user id ${id}`)!
     .setColor('#0099ff')
     .setFooter('This bot was rewritten by alosh#1337. Orignal idea made by MojaveMF#2577.')
+    .setImage(`${url}`)
   
     
     await interaction.reply({ embeds: [embed] });
