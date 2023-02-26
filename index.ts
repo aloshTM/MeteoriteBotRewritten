@@ -24,7 +24,7 @@ client.on('ready', () => {
     description: 'Look up a user on Meteorite',
     options: [
      {
-      name: 'id',
+      name: 'username',
       description: 'Looks up the specified user via username',
       required: true,
       type: 3
