@@ -65,9 +65,10 @@ async function getData() {
   }
 }
 
-  if (commandName === 'lookupid') {
+ 
+if (commandName === 'lookupid' ) {
     const id = options.getNumber('id')! // finds what the user inputted in the ID option and sets that as the render and author
-    const embed = new MessageEmbed() // embed to make it look cleaner
+    const IDembed = new MessageEmbed() // embed to make it look cleaner
     .setAuthor('Here is the user you looked up')! // hi
     .setTitle(`This is user id ${id}`)! // says what ID the user looked up
     .setColor('#0099ff') // Cosemtic
@@ -80,9 +81,23 @@ async function getData() {
       { name: 'Creation Date', value: 'placeholeder' }, // placeholder 
     )
     .setTimestamp(); // idk why i added this but im keeping
+} else if (commandName === 'me') {    
+    const meembed = new MessageEmbed() // embed to make it look cleaner
+    .setAuthor('Here is what you look like')! // hi
+    .setTitle(`This is you!`)! // says what ID the user looked up
+    .setColor('#0099ff') // Cosemtic
+    .setFooter('This bot was rewritten by alosh#1337. Orignal idea made by MojaveMF#2577.') // Credits
+    .setImage(`${url}`) // Sets the image as the render
+    .setThumbnail(`${thumbnail}`)
+    .setFields(
+      { name: 'Creation Date', value: 'placeholeder' }, // placeholder
+      { name: 'Creation Date', value: 'placeholeder' }, // placeholder
+      { name: 'Creation Date', value: 'placeholeder' }, // placeholder 
+    )
+    .setTimestamp(); // idk why i added this but im keeping
   
     
-    await interaction.reply({ embeds: [embed] }); // actually sends the embed with all the info
+    await interaction.reply({ embeds: [meembed] }); // actually sends the embed with all the info
    }
   });
 
