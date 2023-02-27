@@ -97,6 +97,7 @@ if (commandName === 'lookupid' ) {
     .setTimestamp(); // idk why i added this but im keeping
   
     
+    await interaction.reply({ embeds: [] }); // actually sends the embed with all the info
     await interaction.reply({ embeds: [meembed] }); // actually sends the embed with all the info
    }
   });
