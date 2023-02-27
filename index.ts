@@ -23,7 +23,7 @@ client.on('ready', () => {
   
   commands?.create({
     name: 'me',
-    description: 'If you have linked your discord, this command shows you'
+    description: 'If you have linked your discord, this command shows all your data as a embed'
   })
   commands?.create({ // creates the command
     name: 'lookupid',
