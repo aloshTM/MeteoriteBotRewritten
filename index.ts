@@ -23,11 +23,11 @@ client.on('ready', () => {
   
   commands?.create({
     name: 'me',
-    description: 'If you have linked your discord, this command shows all your data as a embed'
+    description: 'If you have linked your discord, this command shows what you looked like on site'
   })
   commands?.create({ // creates the command
     name: 'lookupid',
-    description: 'Look up a user on Meteorite', // explaining to dumbasses what the command does (is the name not enough?)
+    description: 'This command helps you look up a user on Meteorite', // explaining to dumbasses what the command does (is the name not enough?)
     options: [ // makes it so you can input a number
      {
       name: 'id', // id
@@ -67,7 +67,7 @@ async function getData() {
 
   if (commandName === 'lookupid') {
     const id = options.getNumber('id')! // finds what the user inputted in the ID option and sets that as the render and author
-    const IDembed = new MessageEmbed() // embed to make it look cleaner
+    const embed = new MessageEmbed() // embed to make it look cleaner
     .setAuthor('Here is the user you looked up')! // hi
     .setTitle(`This is user id ${id}`)! // says what ID the user looked up
     .setColor('#0099ff') // Cosemtic
@@ -82,7 +82,7 @@ async function getData() {
     .setTimestamp(); // idk why i added this but im keeping
   
     
-    await interaction.reply({ embeds: [IDembed] }); // actually sends the embed with all the info
+    await interaction.reply({ embeds: [embed] }); // actually sends the embed with all the info
    }
   });
 
