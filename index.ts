@@ -20,6 +20,11 @@ client.on('ready', () => {
     commands = client.application?.commands // global commands (never happening?)
   }
 
+  
+  commands?.create({
+    name: 'me',
+    description: 'If you have linked your discord, this command shows you'
+  })
   commands?.create({ // creates the command
     name: 'lookupid',
     description: 'Look up a user on Meteorite', // explaining to dumbasses what the command does (is the name not enough?)
