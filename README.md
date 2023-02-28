@@ -1,6 +1,8 @@
 # MeteoriteBotRewritten
 mojave made a better one and im working on that one so this is open to anyone now (ignore my shit attempts to grab user data)
 
+note to meteorite admins: **DO NOT USE THIS** this is unfinished and is just a base if someone is going to use this as notes.
+
 # Installation
 
 To run this bot, you will need to install some dependencies 
