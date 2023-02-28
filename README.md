@@ -1,4 +1,5 @@
 # MeteoriteBotRewritten
+mojave made a better one and im working on that one so this is open to anyone now (ignore my shit attempts to grab user data)
 
 # Installation
 
